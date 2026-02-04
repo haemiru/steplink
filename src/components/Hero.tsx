@@ -48,20 +48,21 @@ export const Hero = () => {
                     </div>
                 </motion.div>
 
-                {/* Floating elements placeholder - represent Suit & Shoes */}
+                {/* Hero Image */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5, duration: 1 }}
-                    className="mt-16 relative h-64 md:h-96 w-full max-w-4xl mx-auto"
+                    className="mt-16 w-full max-w-4xl mx-auto md:w-full md:max-w-none md:mt-12"
                 >
-                    {/* Conceptual Abstract Representation */}
-                    <div className="absolute left-1/4 top-0 w-32 h-40 bg-blue-500/10 rounded-2xl md:rounded-3xl backdrop-blur-sm border border-blue-200 flex items-center justify-center">
-                        <span className="text-blue-600 font-bold">Suit<br />Alignment</span>
-                    </div>
-                    <div className="absolute right-1/4 bottom-0 w-32 h-40 bg-orange-500/10 rounded-2xl md:rounded-3xl backdrop-blur-sm border border-orange-200 flex items-center justify-center">
-                        <span className="text-orange-600 font-bold">Shoes<br />Sensation</span>
-                    </div>
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
+                    <img 
+                      src="/images/hero_image.png" 
+                      alt="Happy family walking in nature" 
+                      className="w-full h-auto object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                  </div>
                 </motion.div>
             </div>
         </section>
