@@ -48,21 +48,30 @@ export const Hero = () => {
                     </div>
                 </motion.div>
 
-                {/* Hero Image */}
+                {/* Floating elements placeholder - represent Suit & Shoes */}
                 <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 1 }}
-                    className="mt-16 w-full max-w-4xl mx-auto md:w-full md:max-w-none md:mt-12"
+                    className="mt-16 relative h-64 md:h-96 w-full max-w-4xl mx-auto"
                 >
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
-                    <img 
-                      src="/images/hero_image.png" 
-                      alt="Happy family walking in nature" 
-                      className="w-full h-auto object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-                  </div>
+                    {/* Hero Image Background */}
+                    <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
+                        <img
+                            src="/images/hero_final.png"
+                            alt="Happy family walking in nature"
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-blue-50/20 to-transparent pointer-events-none" />
+                    </div>
+
+                    {/* Conceptual Abstract Representation - Overlays */}
+                    <div className="absolute left-4 md:left-1/4 top-4 md:top-8 w-32 h-40 bg-white/30 backdrop-blur-md rounded-2xl md:rounded-3xl border border-white/50 flex items-center justify-center shadow-lg transform -rotate-6 transition-transform hover:rotate-0 hover:scale-105 duration-300">
+                        <span className="text-blue-900 font-bold drop-shadow-sm">Suit<br />Alignment</span>
+                    </div>
+                    <div className="absolute right-4 md:right-1/4 bottom-4 md:bottom-8 w-32 h-40 bg-white/30 backdrop-blur-md rounded-2xl md:rounded-3xl border border-white/50 flex items-center justify-center shadow-lg transform rotate-6 transition-transform hover:rotate-0 hover:scale-105 duration-300">
+                        <span className="text-orange-900 font-bold drop-shadow-sm">Shoes<br />Sensation</span>
+                    </div>
                 </motion.div>
             </div>
         </section>

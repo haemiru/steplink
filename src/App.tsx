@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react';
 import { Hero } from './components/Hero';
 import { Philosophy } from './components/Philosophy';
 import { ProductShowcase } from './components/ProductShowcase';
@@ -7,6 +8,10 @@ import { Guide } from './components/Guide';
 import { Footer } from './components/Footer';
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <header className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100 transition-all">
