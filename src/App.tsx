@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Hero } from './components/Hero';
 import { Philosophy } from './components/Philosophy';
 import { ProductShowcase } from './components/ProductShowcase';
+import { Testimonials } from './components/Testimonials';
 import { TargetAudience } from './components/TargetAudience';
 import { Guide } from './components/Guide';
 import { Footer } from './components/Footer';
@@ -34,6 +35,7 @@ function App() {
       <main>
         <Hero />
         <Philosophy />
+        <Testimonials />
         <ProductShowcase />
         <TargetAudience />
         <Guide />
