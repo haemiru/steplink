@@ -63,12 +63,7 @@ export const Hero = () => {
                     </div>
 
                     {/* Conceptual Abstract Representation - Overlays */}
-                    <div className="absolute left-4 md:left-1/4 top-4 md:top-8 w-32 h-40 bg-white/30 backdrop-blur-md rounded-2xl md:rounded-3xl border border-white/50 flex items-center justify-center shadow-lg transform -rotate-6 transition-transform hover:rotate-0 hover:scale-105 duration-300">
-                        <span className="text-blue-900 font-bold drop-shadow-sm">Suit<br />Alignment</span>
-                    </div>
-                    <div className="absolute right-4 md:right-1/4 bottom-4 md:bottom-8 w-32 h-40 bg-white/30 backdrop-blur-md rounded-2xl md:rounded-3xl border border-white/50 flex items-center justify-center shadow-lg transform rotate-6 transition-transform hover:rotate-0 hover:scale-105 duration-300">
-                        <span className="text-orange-900 font-bold drop-shadow-sm">Shoes<br />Sensation</span>
-                    </div>
+
                 </motion.div>
             </div>
         </section>

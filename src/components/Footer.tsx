@@ -12,8 +12,7 @@ export const Footer = () => {
                         </p>
                     </div>
                     <div className="text-center md:text-right">
-                        <p className="font-bold text-white mb-2">피지오 후각 연구소</p>
-                        <p>문의: 네이버 블로그 키즈피지오@피지오 후각 연구소</p>
+                        <p>문의: 네이버 블로그 키즈피지오</p>
                         <p className="mt-4 text-xs text-gray-500">
                             &copy; {new Date().getFullYear()} StepLink. All rights reserved.
                         </p>

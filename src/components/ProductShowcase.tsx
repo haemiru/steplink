@@ -56,22 +56,30 @@ export const ProductShowcase = () => {
                             <div className="flex-1 p-8 md:p-12 bg-blue-50 flex flex-col justify-center">
                                 <h3 className="text-3xl font-bold text-gray-900 mb-6">🟦 스텝링크 슈트</h3>
                                 <p className="text-lg text-gray-700 font-medium mb-8">
-                                    몸통과 골반을 감싸서 중심을 잡습니다.
+                                    스텝링크 슈트는 몸통과 골반을 안정적으로 감싸 신체 중심의 균형과 체간 안정성을 강화하는 기능성 제품입니다. 이를 통해 척추 및 골반 주변 근육의 활성화를 도와 올바른 자세 유지와 효율적인 움직임을 지원합니다.
                                 </p>
                                 <ul className="space-y-4">
                                     <li className="flex items-start gap-3">
                                         <div className="bg-blue-200 p-1 rounded-full mt-1"><Check className="w-4 h-4 text-blue-700" /></div>
-                                        <span className="text-gray-600">몸의 중심을 느끼게 합니다.</span>
+                                        <span className="text-gray-900 font-bold">체간 중심감각을 향상시켜 신경근 조절 능력을 높임</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <div className="bg-blue-200 p-1 rounded-full mt-1"><Check className="w-4 h-4 text-blue-700" /></div>
-                                        <span className="text-gray-600">자세가 무너지기 전에 미리 알려줍니다.</span>
+                                        <span className="text-gray-900 font-bold">자세가 무너지기 전에 빠르게 인지해 부상 예방에 도움</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <div className="bg-blue-200 p-1 rounded-full mt-1"><Check className="w-4 h-4 text-blue-700" /></div>
-                                        <span className="text-gray-600">"몸이 한 덩어리로 움직이는 느낌"을 만듭니다.</span>
+                                        <span className="text-gray-900 font-bold">신체가 하나로 유기적으로 움직임 강화</span>
                                     </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="bg-blue-200 p-1 rounded-full mt-1"><Check className="w-4 h-4 text-blue-700" /></div>
+                                        <span className="text-gray-900 font-bold">안정된 지지를 바탕으로 정서적 활동 지원</span>
+                                    </li>
+
                                 </ul>
+                                <p className="text-gray-700 font-medium mt-6">
+                                    이로써 운동 수행과 일상 활동 중 안정성과 협응력이 증진됩니다.
+                                </p>
                             </div>
                             <div className="w-full md:w-[400px] bg-blue-100 flex items-center justify-center p-4">
                                 <ImageSequencePlayer
