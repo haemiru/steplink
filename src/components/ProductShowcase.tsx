@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check } from 'lucide-react';
+import ImageSequencePlayer from './ImageSequencePlayer';
 
 export const ProductShowcase = () => {
     const [activeTab, setActiveTab] = useState<'suit' | 'shoes'>('suit');
@@ -52,7 +53,7 @@ export const ProductShowcase = () => {
                             transition={{ duration: 0.3 }}
                             className="bg-white rounded-3xl overflow-hidden shadow-xl max-w-5xl mx-auto flex flex-col md:flex-row"
                         >
-                            <div className="md:w-1/2 p-12 bg-blue-50 flex flex-col justify-center">
+                            <div className="flex-1 p-8 md:p-12 bg-blue-50 flex flex-col justify-center">
                                 <h3 className="text-3xl font-bold text-gray-900 mb-6">🟦 스텝링크 슈트</h3>
                                 <p className="text-lg text-gray-700 font-medium mb-8">
                                     몸통과 골반을 감싸서 중심을 잡습니다.
@@ -72,10 +73,18 @@ export const ProductShowcase = () => {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="md:w-1/2 min-h-[300px] bg-blue-100 flex items-center justify-center relative overflow-hidden">
-                                {/* Placeholder for Suit Image */}
-                                <span className="text-blue-400 font-bold text-2xl">Suit Image Placeholder</span>
-                                <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay"></div>
+                            <div className="w-full md:w-[400px] bg-blue-100 flex items-center justify-center p-4">
+                                <ImageSequencePlayer
+                                    folderPath="/sequence"
+                                    fileNamePrefix="ezgif-frame-"
+                                    extension="jpg"
+                                    frameCount={200}
+                                    fps={5.25}
+                                    padLength={3}
+                                    width={540}
+                                    height={960}
+                                    className="w-full h-auto shadow-2xl rounded-xl"
+                                />
                             </div>
                         </motion.div>
                     ) : (

@@ -6,6 +6,7 @@ import { ProductShowcase } from './components/ProductShowcase';
 import { TargetAudience } from './components/TargetAudience';
 import { Guide } from './components/Guide';
 import { Footer } from './components/Footer';
+import { FloatingButtons } from './components/FloatingButtons';
 
 function App() {
   useEffect(() => {
@@ -19,9 +20,14 @@ function App() {
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent cursor-pointer">
             STEPLINK
           </div>
-          <button className="bg-gray-900 text-white px-5 py-2 rounded-full hover:bg-gray-800 transition-colors text-sm font-medium">
+          <a
+            href="https://blog.naver.com/imoim77"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-900 text-white px-5 py-2 rounded-full hover:bg-gray-800 transition-colors text-sm font-medium"
+          >
             블로그 방문하기
-          </button>
+          </a>
         </div>
       </header>
 
@@ -34,6 +40,7 @@ function App() {
       </main>
 
       <Footer />
+      <FloatingButtons />
     </div>
   );
 }

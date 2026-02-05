@@ -31,20 +31,17 @@ export const Hero = () => {
                     </p>
 
                     <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-                        <motion.button
+                        <motion.a
+                            href="https://smartstore.naver.com/keungkeung_store/products/13068483536"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-4 bg-blue-600 text-white rounded-full font-bold text-lg shadow-lg shadow-blue-600/30 flex items-center gap-2 hover:bg-blue-700 transition-colors"
+                            className="px-8 py-4 bg-blue-600 text-white rounded-full font-bold text-lg shadow-lg shadow-blue-600/30 flex items-center gap-2 hover:bg-blue-700 transition-colors cursor-pointer"
                         >
                             제품 보러가기 <ArrowRight className="w-5 h-5" />
-                        </motion.button>
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="px-8 py-4 bg-white text-gray-700 rounded-full font-bold text-lg shadow-md hover:bg-gray-50 transition-colors border border-gray-100"
-                        >
-                            1:1 상담하기
-                        </motion.button>
+                        </motion.a>
+
                     </div>
                 </motion.div>
 
