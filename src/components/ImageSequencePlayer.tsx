@@ -53,7 +53,7 @@ const ImageSequencePlayer: React.FC<ImageSequencePlayerProps> = ({
                 const infoPath = folderPath.endsWith('/') ? folderPath : `${folderPath}/`;
                 img.src = `${infoPath}${fileNamePrefix}${frameNumber}.${extension}`;
 
-                await new Promise((resolve, reject) => {
+                await new Promise((resolve) => {
                     img.onload = () => {
                         loadedCount++;
                         setProgress(Math.round((loadedCount / frameCount) * 100));
