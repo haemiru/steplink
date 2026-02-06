@@ -32,9 +32,38 @@ const reviews = [
 
 export const Testimonials = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [itemsPerPage, setItemsPerPage] = useState(4); // Default to desktop
+
+    // Update items per page based on window width
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 768) {
+                setItemsPerPage(1);
+            } else if (window.innerWidth < 1024) {
+                setItemsPerPage(2);
+            } else {
+                setItemsPerPage(4);
+            }
+        };
+
+        // Initial check
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Ensure index is valid when itemsPerPage changes
+    useEffect(() => {
+        const maxIndex = Math.max(0, reviews.length - itemsPerPage);
+        if (currentIndex > maxIndex) {
+            setCurrentIndex(maxIndex);
+        }
+    }, [itemsPerPage, currentIndex]);
+
 
     const nextSlide = () => {
-        if (currentIndex < reviews.length - 4) {
+        if (currentIndex < reviews.length - itemsPerPage) {
             setCurrentIndex(prev => prev + 1);
         }
     };
@@ -55,64 +84,54 @@ export const Testimonials = () => {
                     </h2>
                 </div>
 
-                <div className="relative max-w-7xl mx-auto">
+                <div className="relative max-w-7xl mx-auto px-4 md:px-0">
                     {/* Items */}
-                    <div className="overflow-hidden">
+                    <div className="overflow-hidden -mx-3"> {/* Negative margin to offset item padding */}
                         <motion.div
-                            className="flex gap-6"
+                            className="flex"
                             initial={false}
-                            animate={{ x: `${-currentIndex * (100 / 4)}%` }} // Move by 25% (item width) roughly, needs refinement for gap
+                            animate={{ x: `${-currentIndex * (100 / itemsPerPage)}%` }}
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                            style={{
-                                // Calculate width based on items. 
-                                // Actually, simpler implementation for fixed 4 items view:
-                                // To show 4 items, each item takes ~25%.
-                                // Gap handling makes it tricky with pure %, so using flex w/ proper sizing.
-                            }}
                         >
-                            {/* 
-                             Re-thinking the carousel logic for "4 items visible, scroll one by one".
-                             Ideally, we translate based on card width + gap.
-                             Let's assume mobile: 1 card, tablet: 2 cards, desktop: 4 cards.
-                           */}
                             {reviews.map((review) => (
                                 <motion.div
                                     key={review.id}
-                                    className="min-w-[100%] md:min-w-[50%] lg:min-w-[calc(25%-18px)] bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col relative"
+                                    className="min-w-[100%] md:min-w-[50%] lg:min-w-[25%] px-3" // Padding instead of gap
                                 >
-                                    <Quote className="w-10 h-10 text-blue-100 absolute top-6 left-6 -z-0" />
-                                    <div className="relative z-10 flex-1">
-                                        <p className="text-gray-700 leading-relaxed mb-6 pt-4">
-                                            {review.content}
-                                        </p>
-                                    </div>
-                                    <div className="relative z-10 mt-auto pt-4 border-t border-gray-50">
-                                        <p className="text-sm font-bold text-gray-900">{review.author}</p>
+                                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full relative">
+                                        <Quote className="w-10 h-10 text-blue-100 absolute top-6 left-6 -z-0" />
+                                        <div className="relative z-10 flex-1">
+                                            <p className="text-gray-700 leading-relaxed mb-6 pt-4">
+                                                {review.content}
+                                            </p>
+                                        </div>
+                                        <div className="relative z-10 mt-auto pt-4 border-t border-gray-50">
+                                            <p className="text-sm font-bold text-gray-900">{review.author}</p>
+                                        </div>
                                     </div>
                                 </motion.div>
                             ))}
                         </motion.div>
                     </div>
 
-                    {/* Navigation Buttons - Only show if there are more items than visible */}
+                    {/* Navigation Buttons */}
                     <div className="flex justify-center gap-4 mt-8">
                         <button
                             onClick={prevSlide}
                             disabled={currentIndex === 0}
                             className={`p-3 rounded-full border transition-all ${currentIndex === 0
-                                    ? 'border-gray-200 text-gray-300 cursor-not-allowed'
-                                    : 'border-blue-200 text-blue-600 hover:bg-blue-50'
+                                ? 'border-gray-200 text-gray-300 cursor-not-allowed'
+                                : 'border-blue-200 text-blue-600 hover:bg-blue-50'
                                 }`}
                         >
                             <ChevronLeft className="w-6 h-6" />
                         </button>
                         <button
                             onClick={nextSlide}
-                            disabled={currentIndex >= reviews.length - 4} // Disable if last 4 are shown (assuming Desktop) - *Needs responsive logic adjustment if strict 4 items*
-                            // A simple desktop-first approach for now as requested "4 items on a line"
-                            className={`p-3 rounded-full border transition-all ${currentIndex >= reviews.length - 4
-                                    ? 'border-gray-200 text-gray-300 cursor-not-allowed'
-                                    : 'border-blue-200 text-blue-600 hover:bg-blue-50'
+                            disabled={currentIndex >= reviews.length - itemsPerPage}
+                            className={`p-3 rounded-full border transition-all ${currentIndex >= reviews.length - itemsPerPage
+                                ? 'border-gray-200 text-gray-300 cursor-not-allowed'
+                                : 'border-blue-200 text-blue-600 hover:bg-blue-50'
                                 }`}
                         >
                             <ChevronRight className="w-6 h-6" />
