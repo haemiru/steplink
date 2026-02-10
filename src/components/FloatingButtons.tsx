@@ -6,7 +6,7 @@ export const FloatingButtons = () => {
         <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
             {/* Kakao Consultation */}
             <motion.a
-                href="#" // TODO: Add KakaoTalk link here
+                href="https://open.kakao.com/o/sT8GgTfi"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, x: 50 }}
@@ -22,7 +22,7 @@ export const FloatingButtons = () => {
 
             {/* Naver Reservation */}
             <motion.a
-                href="#" // TODO: Add Naver Reservation link here
+                href="https://booking.naver.com/booking/13/bizes/1595859"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, x: 50 }}
